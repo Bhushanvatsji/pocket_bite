@@ -26,7 +26,13 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
 
   Future<void> _fetchResults() async {
     setState(() => _isLoading = true);
-    final items = await _backendService.searchFoodAcrossRestaurants(widget.searchQuery);
+    var items = await _backendService.searchFoodAcrossRestaurants(widget.searchQuery);
+    
+    // Special requirement: Compare items under 100 prices
+    if (widget.searchQuery.toLowerCase().contains('cheese')) {
+      items = items.where((item) => item.price <= 100).toList();
+    }
+    
     setState(() {
       _results = items;
       _isLoading = false;

@@ -22,6 +22,18 @@ const restaurants = [
     rating: 4.6,
     avgWaitTime: 5,
     isOpen: true,
+  },
+  {
+    id: "rest_003",
+    name: "Hostel Canteen",
+    imageUrl: "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+    address: "Outside Boys Hostel",
+    phone: "9316170925",
+    lat: 30.767,
+    lng: 76.579,
+    rating: 4.4,
+    avgWaitTime: 8,
+    isOpen: true,
   }
 ];
 
@@ -39,6 +51,20 @@ const menuItems = [
   { id: 'm10', restaurantId: 'rest_001', restaurantName: 'Sharma Fast Food', foodName: 'Chilli Potato', price: 100, isVeg: true, isAvailable: true },
   { id: 'm11', restaurantId: 'rest_001', restaurantName: 'Sharma Fast Food', foodName: 'White Sauce Pasta', price: 90, isVeg: true, isAvailable: true },
   
+  // HOSTEL CANTEEN ITEMS
+  { id: 'hc_1', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Cheese Pattie', price: 30, isVeg: true, isAvailable: true },
+  { id: 'hc_2', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Cheese Burger', price: 60, isVeg: true, isAvailable: true },
+  { id: 'hc_3', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Cheese Fried Rice', price: 100, isVeg: true, isAvailable: true },
+  { id: 'hc_4', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Cheese Sandwich', price: 50, isVeg: true, isAvailable: true },
+  { id: 'hc_5', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Cheese Noodles', price: 100, isVeg: true, isAvailable: true },
+  { id: 'hc_6', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Aloo Pattie', price: 20, isVeg: true, isAvailable: true },
+  { id: 'hc_7', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Tea', price: 15, isVeg: true, isAvailable: true },
+  { id: 'hc_8', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Cold Coffee', price: 50, isVeg: true, isAvailable: true },
+  { id: 'hc_9', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Paneer Rice', price: 80, isVeg: true, isAvailable: true },
+  { id: 'hc_10', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Veg Fried Rice', price: 80, isVeg: true, isAvailable: true },
+  { id: 'hc_11', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Veg Grilled Sandwich', price: 90, isVeg: true, isAvailable: true },
+  { id: 'hc_12', restaurantId: 'rest_003', restaurantName: 'Hostel Canteen', foodName: 'Veg Maggi', price: 40, isVeg: true, isAvailable: true },
+
   // SANDWICHES
   { id: 'm12', restaurantId: 'rest_002', restaurantName: 'Campus Wraps', foodName: 'Veg Grilled Sandwich', price: 60, isVeg: true, isAvailable: true },
   { id: 'm13', restaurantId: 'rest_002', restaurantName: 'Campus Wraps', foodName: 'Paneer Korma Sandwich', price: 90, isVeg: true, isAvailable: true },
@@ -65,3 +91,4 @@ const menuItems = [
 ];
 
 module.exports = { restaurants, menuItems };
+

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'filter_page.dart';
 import 'food_detail_page.dart';
 import 'recommendation_page.dart';
+import 'comparison_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -99,6 +100,57 @@ class HomePage extends StatelessWidget {
                         child: const Icon(Icons.tune, color: Colors.white, size: 16),
                       ),
                     ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+
+            // Cheese Comparison Promo
+            GestureDetector(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const ComparisonScreen(searchQuery: "Cheese"),
+                ),
+              ),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF0F7A59), Color(0xFF27D39A)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(24),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF0F7A59).withOpacity(0.3),
+                      blurRadius: 15,
+                      offset: const Offset(0, 8),
+                    )
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            "Cheese Deals! 🧀",
+                            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w900),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            "Compare all cheese items under ₹100",
+                            style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 20),
                   ],
                 ),
               ),
@@ -268,6 +320,38 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 24),
 
+            // Hostel Specials Header
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  "New at Hostel Canteen 🍽️",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: Color(0xFF1C2126)),
+                ),
+                Text(
+                  "See All",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xFF0F7A59)),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+
+            // Hostel Specials Horizontal List
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              clipBehavior: Clip.none,
+              child: Row(
+                children: [
+                   _buildHostelItem("Cheese Burger", "₹60", "https://images.unsplash.com/photo-1568901346375-23c9450c58cd", context),
+                   const SizedBox(width: 16),
+                   _buildHostelItem("Veg Noodles", "₹80", "https://images.unsplash.com/photo-1585032226651-759b368d7246", context),
+                   const SizedBox(width: 16),
+                   _buildHostelItem("Cheese Pattie", "₹30", "https://images.unsplash.com/photo-1601050690597-df056fb4ce7a", context),
+                ],
+              ),
+            ),
+            const SizedBox(height: 32),
+
             // Bottom Poke Bowl card — taps to Food Detail
             GestureDetector(
               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const FoodDetailPage())),
@@ -326,6 +410,34 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 50),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHostelItem(String name, String price, String imageUrl, BuildContext context) {
+    return GestureDetector(
+      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const FoodDetailPage())),
+      child: Container(
+        width: 160,
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 15, offset: const Offset(0, 8))],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.network(imageUrl, height: 100, width: double.infinity, fit: BoxFit.cover),
+            ),
+            const SizedBox(height: 12),
+            Text(name, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Color(0xFF1C2126))),
+            const SizedBox(height: 4),
+            Text(price, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Color(0xFF0A5840))),
           ],
         ),
       ),
